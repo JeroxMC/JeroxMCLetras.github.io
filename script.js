@@ -1,47 +1,67 @@
-const input = document.getElementById('input');
-const container = document.getElementById('resultados');
+const text = "JeroxMC"; // Puedes cambiar este texto base
 
-const fuentes = [
-  {
-    nombre: "𝓛𝓮𝓽𝓻𝓪 cursiva",
-    convertir: (texto) => texto.split('').map(c => {
-      const code = c.charCodeAt(0);
-      return (code >= 97 && code <= 122) ? String.fromCharCode(0x1D4B6 + code - 97) :
-             (code >= 65 && code <= 90) ? String.fromCharCode(0x1D4AE + code - 65) : c;
-    }).join('')
-  },
-  {
-    nombre: "𝔏𝔢𝔱𝔯𝔞 gótica",
-    convertir: (texto) => texto.split('').map(c => {
-      const gothic = {
-        A: '𝔄', B: '𝔅', C: 'ℭ', D: '𝔇', E: '𝔈', F: '𝔉', G: '𝔊',
-        H: 'ℌ', I: 'ℑ', J: '𝔍', K: '𝔎', L: '𝔏', M: '𝔐', N: '𝔑',
-        O: '𝔒', P: '𝔓', Q: '𝔔', R: 'ℜ', S: '𝔖', T: '𝔗', U: '𝔘',
-        V: '𝔙', W: '𝔚', X: '𝔛', Y: '𝔜', Z: 'ℨ',
-        a: '𝔞', b: '𝔟', c: '𝔠', d: '𝔡', e: '𝔢', f: '𝔣', g: '𝔤',
-        h: '𝔥', i: '𝔦', j: '𝔧', k: '𝔨', l: '𝔩', m: '𝔪', n: '𝔫',
-        o: '𝔬', p: '𝔭', q: '𝔮', r: '𝔯', s: '𝔰', t: '𝔱', u: '𝔲',
-        v: '𝔳', w: '𝔴', x: '𝔵', y: '𝔶', z: '𝔷'
-      };
-      return gothic[c] || c;
-    }).join('')
-  }
+const styles = [
+  { name: "𝒥𝑒𝓇𝑜𝓍𝑀𝒞", transform: str => str.replace(/./g, c => {
+    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const fancy = "𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵𝒶𝒷𝒸𝒹𝑒𝒻𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
+    return map.includes(c) ? fancy[map.indexOf(c)] : c;
+  })},
+
+  { name: "𝓙𝓮𝓻𝓸𝔁𝓜𝓒", transform: str => str.replace(/./g, c => {
+    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const fancy = "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃";
+    return map.includes(c) ? fancy[map.indexOf(c)] : c;
+  })},
+
+  { name: "ⒿⒺⓇⓄⓍⓂⒸ", transform: str => str.replace(/./g, c => {
+    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const fancy = "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ";
+    return map.includes(c) ? fancy[map.indexOf(c)] : c;
+  })},
+
+  { name: "🅹🅴🆁🅾🆇🅼🅲", transform: str => str.replace(/./g, c => {
+    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fancy = "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉";
+    c = c.toUpperCase();
+    return map.includes(c) ? fancy[map.indexOf(c)] : c;
+  })},
+
+  { name: "🇯🇪🇷🇴🇽🇲🇨", transform: str => str.replace(/./g, c => {
+    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    c = c.toUpperCase();
+    return map.includes(c) ? String.fromCodePoint(0x1F1E6 + (c.charCodeAt(0) - 65)) : c;
+  })},
+
+  { name: "🄹🄴🅁🄾🅇🄼🄲", transform: str => str.replace(/./g, c => {
+    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fancy = "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉";
+    c = c.toUpperCase();
+    return map.includes(c) ? fancy[map.indexOf(c)] : c;
+  })},
+
+  { name: "⟦ᴊᴇʀᴏxᴍᴄ⟧", transform: str => `⟦${str.toLowerCase().split('').map(c => "abcdefghijklmnopqrstuvwxyz".includes(c) ? "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ"["abcdefghijklmnopqrstuvwxyz".indexOf(c)] : c).join('')}⟧` },
 ];
 
-input.addEventListener('input', () => {
-  const texto = input.value;
-  container.innerHTML = '';
-  fuentes.forEach(fuente => {
-    const resultado = fuente.convertir(texto);
-    const div = document.createElement('div');
-    div.className = 'result';
-    div.textContent = resultado;
-    div.title = 'Haz clic para copiar';
-    div.onclick = () => {
-      navigator.clipboard.writeText(resultado);
-      div.textContent = '¡Copiado! ' + resultado;
-      setTimeout(() => div.textContent = resultado, 1000);
-    };
-    container.appendChild(div);
+const output = document.getElementById("output");
+
+styles.forEach(style => {
+  const styledText = style.transform(text);
+
+  const box = document.createElement("div");
+  box.className = "style-box";
+  box.innerText = styledText;
+
+  const label = document.createElement("div");
+  label.className = "style-label";
+  label.innerText = style.name;
+
+  box.appendChild(label);
+  box.addEventListener("click", () => {
+    navigator.clipboard.writeText(styledText);
+    box.style.background = "#4caf50";
+    setTimeout(() => box.style.background = "#2c2c2c", 500);
   });
+
+  output.appendChild(box);
 });
+
