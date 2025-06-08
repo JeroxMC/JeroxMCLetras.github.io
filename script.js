@@ -91,7 +91,7 @@ const styles = [
   t => '🔩 ' + t + ' 🔩',
   t => '🔧 ' + t + ' 🔧',
   t => '🧲 ' + t + ' 🧲',
-  t => '🔗 ' + t + ' 🔗',
+  t => '🔗 ' + t + ' 🔗?',
 ];
 
 const input = document.getElementById("input");
