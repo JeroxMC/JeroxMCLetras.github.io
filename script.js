@@ -1,79 +1,134 @@
-const input = document.getElementById("inputText");
-const output = document.getElementById("output");
-
 const styles = [
-  { name: "𝒥𝑒𝓇𝑜𝓍𝑀𝒞", transform: str => str.replace(/./g, c => {
-    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    const fancy = "𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵𝒶𝒷𝒸𝒹𝑒𝒻𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
-    return map.includes(c) ? fancy[map.indexOf(c)] : c;
-  })},
-
-  { name: "𝓙𝓮𝓻𝓸𝔁𝓜𝓒", transform: str => str.replace(/./g, c => {
-    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    const fancy = "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃";
-    return map.includes(c) ? fancy[map.indexOf(c)] : c;
-  })},
-
-  { name: "ⒿⒺⓇⓄⓍⓂⒸ", transform: str => str.replace(/./g, c => {
-    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    const fancy = "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ";
-    return map.includes(c) ? fancy[map.indexOf(c)] : c;
-  })},
-
-  { name: "🅹🅴🆁🅾🆇🅼🅲", transform: str => str.replace(/./g, c => {
-    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fancy = "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉";
-    c = c.toUpperCase();
-    return map.includes(c) ? fancy[map.indexOf(c)] : c;
-  })},
-
-  { name: "🇯🇪🇷🇴🇽🇲🇨", transform: str => str.replace(/./g, c => {
-    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    c = c.toUpperCase();
-    return map.includes(c) ? String.fromCodePoint(0x1F1E6 + (c.charCodeAt(0) - 65)) : c;
-  })},
-
-  { name: "🄹🄴🅁🄾🅇🄼🄲", transform: str => str.replace(/./g, c => {
-    const map = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fancy = "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉";
-    c = c.toUpperCase();
-    return map.includes(c) ? fancy[map.indexOf(c)] : c;
-  })},
-
-  { name: "⟦ᴊᴇʀᴏxᴍᴄ⟧", transform: str => `⟦${str.toLowerCase().split('').map(c => {
-    const map = "abcdefghijklmnopqrstuvwxyz";
-    const fancy = "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ";
-    return map.includes(c) ? fancy[map.indexOf(c)] : c;
-  }).join('')}⟧` },
+  t => t.toUpperCase(),
+  t => t.toLowerCase(),
+  t => [...t].reverse().join(''),
+  t => t.split('').join('✨'),
+  t => '★ ' + t + ' ★',
+  t => '♡ ' + t + ' ♡',
+  t => '『' + t + '』',
+  t => '➤ ' + t + ' ➤',
+  t => '☁️ ' + t + ' ☁️',
+  t => '⛧ ' + t + ' ⛧',
+  t => '✿ ' + t + ' ✿',
+  t => '✧ ' + t + ' ✧',
+  t => '𓆩 ' + t + ' 𓆪',
+  t => '➶ ' + t + ' ➷',
+  t => '☠ ' + t + ' ☠',
+  t => '⚡ ' + t + ' ⚡',
+  t => '🔥 ' + t + ' 🔥',
+  t => '🎀 ' + t + ' 🎀',
+  t => '💎 ' + t + ' 💎',
+  t => '🌈 ' + t + ' 🌈',
+  t => '🎉 ' + t + ' 🎉',
+  t => '🧃 ' + t + ' 🧃',
+  t => '🎃 ' + t + ' 🎃',
+  t => '💣 ' + t + ' 💣',
+  t => '👑 ' + t + ' 👑',
+  t => '💀 ' + t + ' 💀',
+  t => '🕷 ' + t + ' 🕷',
+  t => '🎧 ' + t + ' 🎧',
+  t => '🚀 ' + t + ' 🚀',
+  t => '🎈 ' + t + ' 🎈',
+  t => '🧸 ' + t + ' 🧸',
+  t => '🌸 ' + t + ' 🌸',
+  t => '🍁 ' + t + ' 🍁',
+  t => '🪐 ' + t + ' 🪐',
+  t => '🔮 ' + t + ' 🔮',
+  t => '🖤 ' + t + ' 🖤',
+  t => '😈 ' + t + ' 😈',
+  t => '👻 ' + t + ' 👻',
+  t => '🧠 ' + t + ' 🧠',
+  t => '🫀 ' + t + ' 🫀',
+  t => '📀 ' + t + ' 📀',
+  t => '📚 ' + t + ' 📚',
+  t => '🧃 ' + t + ' 🧃',
+  t => '🧋 ' + t + ' 🧋',
+  t => '🧊 ' + t + ' 🧊',
+  t => '🧿 ' + t + ' 🧿',
+  t => '🛸 ' + t + ' 🛸',
+  t => '🪅 ' + t + ' 🪅',
+  t => '🪄 ' + t + ' 🪄',
+  t => '🔫 ' + t + ' 🔫',
+  t => '🛡 ' + t + ' 🛡',
+  t => '🧱 ' + t + ' 🧱',
+  t => '🗡 ' + t + ' 🗡',
+  t => '💤 ' + t + ' 💤',
+  t => '⚔ ' + t + ' ⚔',
+  t => '🪓 ' + t + ' 🪓',
+  t => '🧨 ' + t + ' 🧨',
+  t => '📜 ' + t + ' 📜',
+  t => '📝 ' + t + ' 📝',
+  t => '🖋️ ' + t + ' 🖋️',
+  t => '✏️ ' + t + ' ✏️',
+  t => '💌 ' + t + ' 💌',
+  t => '📖 ' + t + ' 📖',
+  t => '🪙 ' + t + ' 🪙',
+  t => '💍 ' + t + ' 💍',
+  t => '🌙 ' + t + ' 🌙',
+  t => '🌟 ' + t + ' 🌟',
+  t => '⭐ ' + t + ' ⭐',
+  t => '🔔 ' + t + ' 🔔',
+  t => '🎵 ' + t + ' 🎵',
+  t => '🎶 ' + t + ' 🎶',
+  t => '💬 ' + t + ' 💬',
+  t => '🗯 ' + t + ' 🗯',
+  t => '🌀 ' + t + ' 🌀',
+  t => '☃ ' + t + ' ☃',
+  t => '🌌 ' + t + ' 🌌',
+  t => '🛠 ' + t + ' 🛠',
+  t => '🧰 ' + t + ' 🧰',
+  t => '🗃 ' + t + ' 🗃',
+  t => '🗂 ' + t + ' 🗂',
+  t => '🖥 ' + t + ' 🖥',
+  t => '📱 ' + t + ' 📱',
+  t => '🕹 ' + t + ' 🕹',
+  t => '⌨️ ' + t + ' ⌨️',
+  t => '💡 ' + t + ' 💡',
+  t => '🧬 ' + t + ' 🧬',
+  t => '📡 ' + t + ' 📡',
+  t => '⚙ ' + t + ' ⚙',
+  t => '⛓ ' + t + ' ⛓',
+  t => '🔩 ' + t + ' 🔩',
+  t => '🔧 ' + t + ' 🔧',
+  t => '🧲 ' + t + ' 🧲',
+  t => '🔗 ' + t + ' 🔗',
 ];
 
-function updateOutput(value) {
-  output.innerHTML = "";
-  styles.forEach(style => {
-    const styledText = style.transform(value);
+const input = document.getElementById("input");
+const results = document.getElementById("results");
 
-    const box = document.createElement("div");
-    box.className = "style-box";
-    box.innerText = styledText;
+input.addEventListener("input", () => {
+  const value = input.value.trim();
+  results.innerHTML = "";
+  if (!value) return;
 
-    const label = document.createElement("div");
-    label.className = "style-label";
-    label.innerText = style.name;
+  styles.forEach(fn => {
+    const styled = fn(value);
+    const container = document.createElement("div");
+    container.className = "output";
 
-    box.appendChild(label);
-    box.addEventListener("click", () => {
-      navigator.clipboard.writeText(styledText);
-      box.style.background = "#4caf50";
-      setTimeout(() => box.style.background = "#2c2c2c", 500);
-    });
+    const textDiv = document.createElement("div");
+    textDiv.className = "decorated";
+    textDiv.textContent = styled;
 
-    output.appendChild(box);
+    const button = document.createElement("button");
+    button.textContent = "Copiar";
+    button.onclick = () => {
+      navigator.clipboard.writeText(styled).then(() => {
+        button.textContent = "✔ Copiado";
+        button.style.backgroundColor = "#2ecc71";
+        setTimeout(() => {
+          button.textContent = "Copiar";
+          button.style.backgroundColor = "#3498db";
+        }, 1500);
+      });
+    };
+
+    container.appendChild(textDiv);
+    container.appendChild(button);
+    results.appendChild(container);
   });
-}
+});
 
-input.addEventListener("input", e => updateOutput(e.target.value));
-
-// Mostrar estilos con texto inicial por defecto
-updateOutput("JeroxMC");
 
 
