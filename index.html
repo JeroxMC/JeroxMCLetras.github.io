@@ -1,45 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JeroxMC Letras Decorativas</title>
+  <meta charset="UTF-8">
+  <title>Letras Decorativas — JeroxMC</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
       padding: 20px;
-      background: #1e1e1e;
-      color: white;
+      max-width: 800px;
+      margin: auto;
     }
 
-    input {
+    h1 {
+      text-align: center;
+    }
+
+    textarea {
       width: 100%;
-      padding: 10px;
+      height: 60px;
       font-size: 18px;
       margin-bottom: 20px;
+      padding: 10px;
+      resize: none;
+    }
+
+    .output {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+    }
+
+    .decorated {
+      flex: 1;
+      font-size: 20px;
+      word-break: break-word;
+    }
+
+    button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
       border: none;
-      border-radius: 5px;
-    }
-
-    .styled-text {
-      padding: 8px;
-      background: #2b2b2b;
-      margin-bottom: 8px;
       border-radius: 4px;
+      background-color: #3498db;
+      color: white;
+      transition: background-color 0.3s;
     }
 
-    strong {
-      color: #00ffcc;
+    button:active {
+      transform: scale(0.98);
     }
   </style>
 </head>
 <body>
-  <h1>JeroxMC - Letras Decorativas</h1>
-  <input type="text" id="inputText" placeholder="Escribe aquí...">
-  <div id="output"></div>
+
+  <h1>Generador de Letras Bonitas ✨</h1>
+  <textarea id="input" placeholder="Escribe tu texto aquí..."></textarea>
+  <div id="results"></div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
