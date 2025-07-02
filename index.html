@@ -1,73 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Letras Decorativas — JeroxMC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
-      max-width: 800px;
+      background-color: #0e0e0e;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(to right, #141e30, #243b55);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    h1 {
-      text-align: center;
-    }
-
-    textarea {
-      width: 100%;
-      height: 60px;
-      font-size: 18px;
+    h2 {
+      font-size: 2em;
       margin-bottom: 20px;
-      padding: 10px;
-      resize: none;
+      border-left: 5px solid #4db8ff;
+      padding-left: 15px;
     }
 
-    .output {
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 8px;
+    .projects, .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
-    .decorated {
-      flex: 1;
-      font-size: 20px;
-      word-break: break-word;
+    .card {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(77, 184, 255, 0.2);
     }
 
-    button {
-      margin-left: 10px;
-      padding: 5px 10px;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
-      border-radius: 4px;
-      background-color: #3498db;
-      color: white;
-      transition: background-color 0.3s;
+    .card h3 {
+      color: #4db8ff;
+      margin-bottom: 10px;
     }
 
-    button:active {
-      transform: scale(0.98);
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #111;
+      color: #777;
+    }
+
+    a {
+      color: #4db8ff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Tu Nombre</h1>
+    <p>Tu eslogan o descripción breve aquí</p>
+  </header>
 
-  <h1>Generador de Letras ✨</h1>
-  <textarea id="input" placeholder="Escribe tu texto aquí..."></textarea>
-  <div id="results"></div>
+  <section id="about">
+    <h2>Sobre mí</h2>
+    <p>Aquí puedes escribir una breve descripción sobre ti, lo que haces y lo que te apasiona. Puedes editar este texto libremente desde GitHub.</p>
+  </section>
 
-  <script src="script.js"></script>
+  <section id="projects">
+    <h2>Proyectos</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>SkyDash Panel</h3>
+        <p>Panel de control web moderno para servidores de Minecraft. Incluye estadísticas en tiempo real, gestión de jugadores y control de plugins.</p>
+      </div>
+      <div class="card">
+        <h3>JeroxBot</h3>
+        <p>Bot avanzado para Discord con sistema de tickets, cumpleaños, sugerencias y moderación. Programado en Python y fácil de configurar para cualquier comunidad.</p>
+      </div>
+      <div class="card">
+        <h3>BoxPvP Pack</h3>
+        <p>Texture pack estilo PvP basado en Faithful. Diseñado para servidores de BoxPvP con espadas cortas, partículas limpias y HUD competitivo.</p>
+      </div>
+      <div class="card">
+        <h3>Web JeroxMC</h3>
+        <p>Plataforma inspirada en BlackSpigot con recursos, categorías, panel de administración, sistema de puntuaciones y diseño oscuro responsive.</p>
+      </div>
+      <div class="card">
+        <h3>AutoPost Discord</h3>
+        <p>Bot en Node.js que detecta y anuncia automáticamente nuevos videos o publicaciones desde YouTube, TikTok o Twitter con embeds visuales.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Habilidades</h2>
+    <div class="skills">
+      <div class="card">HTML</div>
+      <div class="card">CSS</div>
+      <div class="card">JavaScript</div>
+      <div class="card">Python</div>
+      <div class="card">Node.js</div>
+      <div class="card">Discord Bots</div>
+      <div class="card">Minecraft Plugins</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contacto</h2>
+    <p>Puedes contactarme por <a href="https://discord.com/" target="_blank">Discord</a>, <a href="https://github.com/" target="_blank">GitHub</a> o <a href="mailto:tuemail@ejemplo.com">correo electrónico</a>.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 TuNombre. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
+
 
 
 
