@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Portafolio</title>
+  <title>Mi Portafolio Shadow</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,12 +17,14 @@
       background-color: #0e0e0e;
       color: #fff;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     header {
       padding: 80px 20px;
       text-align: center;
       background: linear-gradient(to right, #141e30, #243b55);
+      animation: fadeInDown 1s ease-out;
     }
 
     header h1 {
@@ -39,6 +41,7 @@
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
+      animation: fadeIn 1.5s ease;
     }
 
     h2 {
@@ -59,6 +62,13 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(77, 184, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(77, 184, 255, 0.4);
     }
 
     .card h3 {
@@ -71,43 +81,59 @@
       padding: 30px;
       background-color: #111;
       color: #777;
+      animation: fadeIn 2s ease;
     }
 
     a {
       color: #4db8ff;
       text-decoration: none;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Shadow</h1>
-    <p>Mi DC >xshadowplayer<</p>
+    <p>Mi DC &gt;xshadowplayer&lt;</p>
   </header>
 
   <section id="about">
     <h2>Sobre mí</h2>
-    <p>Soy Shadow un configurador/desarollador de MC y DC tengo 16 años</p>
+    <p>Soy Shadow un configurador/desarrollador de MC y DC. Tengo 16 años y me apasiona crear bots y servidores únicos.</p>
   </section>
 
   <section id="projects">
     <h2>Proyectos</h2>
     <div class="projects">
       <div class="card">
-        <h3>Bot de discord >BrunoLandia<</h3>
+        <h3>Bot de Discord &gt;BrunoLandia&lt;</h3>
         <p>Bot avanzado para Discord con sistema de tickets, cumpleaños, sugerencias y moderación. Programado en Python y fácil de configurar para cualquier comunidad.</p>
       </div>
       <div class="card">
         <h3>JeroxBot</h3>
-        <p>Bot avanzado para Discord con sistema de tickets, bienvenida, anuncios, giveawyas, moderación y mucho mas. Programado en Python y fácil de configurar para cualquier comunidad.</p>
+        <p>Bot avanzado para Discord con sistema de tickets, bienvenida, anuncios, sorteos, moderación y mucho más. Programado en Python y adaptable a cualquier servidor.</p>
       </div>
       <div class="card">
         <h3>BoxPvP</h3>
-        <p>Oceanbox con todo minas, hologramas, kits, menus y mucho mas pero cerro por que no tenian dinero</p>
+        <p>Servidor Oceanbox con minas, hologramas, kits, menús y más. Cerró por falta de presupuesto, pero fue una gran experiencia de aprendizaje.</p>
       </div>
       <div class="card">
-        <h3>En Desarrollo >JeroxMC BoxPvP<</h3>
-        <p>JeroxMC boxpvp tematica >Peliculas< estamos trabajando en un boxpvp ya tenemos todo hologramas minas kits y mucho mas solo falta la fecha de abrida</p>
+        <h3>En Desarrollo &gt;JeroxMC BoxPvP&lt;</h3>
+        <p>BoxPvP temático de películas. Incluye hologramas, minas, menús, kits y más. Próximamente apertura con un gran evento de lanzamiento.</p>
       </div>
       <div class="card">
         <h3>AutoPost Discord</h3>
@@ -139,6 +165,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
