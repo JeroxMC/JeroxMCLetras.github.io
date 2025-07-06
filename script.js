@@ -1,49 +1,32 @@
-function generateHex() {
-  const hex = "#" + Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, "0");
-  const userText = document.getElementById("userText").value;
-  document.getElementById("result").innerHTML = `<span style="color:${hex}">${userText}</span>`;
+let isBold = false;
+let isItalic = false;
+
+function toggleStyle(style) {
+  if (style === "bold") isBold = !isBold;
+  if (style === "italic") isItalic = !isItalic;
 }
 
-function applyFontStyle(style) {
+function applyFormat() {
   const text = document.getElementById("userText").value;
-  const styleMap = {
-    bold: { A: "𝗔", a: "𝗮" },
-    italic: { A: "𝘈", a: "𝘢" },
-    bubble: { A: "Ⓐ", a: "ⓐ" },
-  };
-  
-  const convert = (ch) => {
-    const code = ch.charCodeAt(0);
-    if (style === "bold") {
-      if (code >= 65 && code <= 90) return String.fromCharCode(0x1d400 + code - 65);
-      if (code >= 97 && code <= 122) return String.fromCharCode(0x1d41a + code - 97);
-    }
-    if (style === "italic") {
-      if (code >= 65 && code <= 90) return String.fromCharCode(0x1d434 + code - 65);
-      if (code >= 97 && code <= 122) return String.fromCharCode(0x1d44e + code - 97);
-    }
-    if (style === "bubble") {
-      const bubbles = "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ";
-      if (code >= 97 && code <= 122) return bubbles[code - 97];
-      return ch;
-    }
-    return ch;
-  };
+  const color = document.getElementById("colorPicker").value;
+  const emoji = document.getElementById("emojiSelect").value;
 
-  const converted = text.split("").map(convert).join("");
-  document.getElementById("result").innerText = converted;
-}
+  const span = document.createElement("span");
+  span.textContent = emoji ? `${emoji} ${text} ${emoji}` : text;
+  span.style.color = color;
 
-function addEmojis() {
-  const emojis = ["✨", "🔥", "😂", "🚀", "🌈", "💯", "🎉", "🥳", "😎"];
-  const text = document.getElementById("userText").value;
-  const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-  document.getElementById("result").innerText = `${emoji} ${text} ${emoji}`;
+  span.classList.toggle("bold", isBold);
+  span.classList.toggle("italic", isItalic);
+
+  const result = document.getElementById("result");
+  result.innerHTML = "";
+  result.appendChild(span);
 }
 
 function copyResult() {
-  const result = document.getElementById("result").innerText;
-  navigator.clipboard.writeText(result)
-    .then(() => alert("Texto copiado al portapapeles!"))
+  const resultText = document.getElementById("result").innerText;
+  navigator.clipboard.writeText(resultText)
+    .then(() => alert("¡Texto copiado!"))
     .catch(() => alert("Error al copiar."));
 }
+
