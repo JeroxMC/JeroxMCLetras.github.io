@@ -1,6 +1,6 @@
 body {
-  font-family: sans-serif;
-  background: #1e1e2f;
+  font-family: Arial, sans-serif;
+  background: #1c1c2e;
   color: #fff;
   margin: 0;
   padding: 2rem;
@@ -12,13 +12,28 @@ body {
   margin: auto;
 }
 
-input {
+input[type="text"] {
   width: 100%;
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 8px;
   border: none;
   font-size: 1.2rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+select, input[type="color"] {
+  padding: 0.4rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
 }
 
 .buttons button {
@@ -35,6 +50,19 @@ input {
 .buttons button:hover {
   background: #666;
 }
+
+.result {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  word-wrap: break-word;
+  border: 2px dashed #fff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* Estilos dinámicos */
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
 
 .result {
   margin-top: 2rem;
