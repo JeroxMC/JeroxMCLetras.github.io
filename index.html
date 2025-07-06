@@ -2,169 +2,32 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Portafolio Shadow</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background-color: #0e0e0e;
-      color: #fff;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      padding: 80px 20px;
-      text-align: center;
-      background: linear-gradient(to right, #141e30, #243b55);
-      animation: fadeInDown 1s ease-out;
-    }
-
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2em;
-      color: #aaa;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeIn 1.5s ease;
-    }
-
-    h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      border-left: 5px solid #4db8ff;
-      padding-left: 15px;
-    }
-
-    .projects, .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background-color: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(77, 184, 255, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 1s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(77, 184, 255, 0.4);
-    }
-
-    .card h3 {
-      color: #4db8ff;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background-color: #111;
-      color: #777;
-      animation: fadeIn 2s ease;
-    }
-
-    a {
-      color: #4db8ff;
-      text-decoration: none;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hex + Letras + Emojis Generator</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <h1>Shadow</h1>
-    <p>Mi DC &gt;xshadowplayer&lt;</p>
-  </header>
+  <div class="container">
+    <h1>Generador HEX + Letras + Emojis</h1>
+    
+    <input type="text" id="userText" placeholder="Escribe tu texto aquí" />
 
-  <section id="about">
-    <h2>Sobre mí</h2>
-    <p>Soy Shadow un configurador/desarrollador de MC y DC. Tengo 16 años y me apasiona crear bots y servidores únicos.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Proyectos</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Bot de Discord &gt;BrunoLandia&lt;</h3>
-        <p>Bot avanzado para Discord con sistema de tickets, cumpleaños, sugerencias y moderación. Programado en Python y fácil de configurar para cualquier comunidad.</p>
-      </div>
-      <div class="card">
-        <h3>JeroxBot</h3>
-        <p>Bot avanzado para Discord con sistema de tickets, bienvenida, anuncios, sorteos, moderación y mucho más. Programado en Python y adaptable a cualquier servidor.</p>
-      </div>
-      <div class="card">
-        <h3>BoxPvP</h3>
-        <p>Servidor Oceanbox con minas, hologramas, kits, menús y más. Cerró por falta de presupuesto, pero fue una gran experiencia de aprendizaje.</p>
-      </div>
-      <div class="card">
-        <h3>En Desarrollo &gt;JeroxMC BoxPvP&lt;</h3>
-        <p>BoxPvP temático de películas. Incluye hologramas, minas, menús, kits y más. Próximamente apertura con un gran evento de lanzamiento.</p>
-      </div>
-      <div class="card">
-        <h3>AutoPost Discord</h3>
-        <p>Bot en Node.js que detecta y anuncia automáticamente nuevos videos o publicaciones desde YouTube, TikTok o Twitter con embeds visuales.</p>
-      </div>
+    <div class="buttons">
+      <button onclick="generateHex()">🎨 Color HEX</button>
+      <button onclick="applyFontStyle('bold')">𝗡𝗲𝗴𝗿𝗶𝘁𝗮</button>
+      <button onclick="applyFontStyle('italic')">𝘊𝘶𝘳𝘴𝘪𝘷𝘢</button>
+      <button onclick="applyFontStyle('bubble')">ⓑⓤⓡⓑⓤⓙⓐ</button>
+      <button onclick="addEmojis()">🎉 Emojis</button>
+      <button onclick="copyResult()">📋 Copiar</button>
     </div>
-  </section>
 
-  <section id="skills">
-    <h2>Habilidades</h2>
-    <div class="skills">
-      <div class="card">HTML 75%</div>
-      <div class="card">CSS 25%</div>
-      <div class="card">JavaScript 50%</div>
-      <div class="card">Python 100%</div>
-      <div class="card">Node.js 25%</div>
-      <div class="card">Discord Bots 95%</div>
-      <div class="card">Minecraft Plugins 25%</div>
-    </div>
-  </section>
+    <div id="result" class="result"></div>
+  </div>
 
-  <section id="contact">
-    <h2>Contacto</h2>
-    <p>Puedes contactarme por <a href="https://discord.gg/JxpqYhza6W" target="_blank">Discord</a>, <a href="https://github.com/" target="_blank">GitHub</a> o <a href="mailto:jeroxmc2@gmail.com">correo electrónico</a>.</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Shadow. Todos los derechos reservados.</p>
-  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
