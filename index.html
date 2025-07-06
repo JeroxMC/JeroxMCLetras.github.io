@@ -3,21 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hex + Letras + Emojis Generator</title>
+  <title>Generador de Texto</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container">
-    <h1>Generador HEX + Letras + Emojis</h1>
-    
-    <input type="text" id="userText" placeholder="Escribe tu texto aquí" />
+    <h1>🎨 Hex + Letras + Emojis</h1>
+
+    <input type="text" id="userText" placeholder="Escribe tu texto aquí..." />
+
+    <div class="controls">
+      <label for="colorPicker">Color:</label>
+      <input type="color" id="colorPicker" value="#ff9900" />
+
+      <label for="emojiSelect">Emoji:</label>
+      <select id="emojiSelect">
+        <option value="">-- Elegir --</option>
+        <option value="✨">✨ Brillo</option>
+        <option value="🔥">🔥 Fuego</option>
+        <option value="😂">😂 Risa</option>
+        <option value="🎉">🎉 Fiesta</option>
+        <option value="😎">😎 Cool</option>
+        <option value="💯">💯 100%</option>
+        <option value="🥳">🥳 Celebrar</option>
+      </select>
+    </div>
 
     <div class="buttons">
-      <button onclick="generateHex()">🎨 Color HEX</button>
-      <button onclick="applyFontStyle('bold')">𝗡𝗲𝗴𝗿𝗶𝘁𝗮</button>
-      <button onclick="applyFontStyle('italic')">𝘊𝘶𝘳𝘴𝘪𝘷𝘢</button>
-      <button onclick="applyFontStyle('bubble')">ⓑⓤⓡⓑⓤⓙⓐ</button>
-      <button onclick="addEmojis()">🎉 Emojis</button>
+      <button onclick="toggleStyle('bold')">𝗡𝗲𝗴𝗿𝗶𝘁𝗮</button>
+      <button onclick="toggleStyle('italic')">𝘊𝘶𝘳𝘴𝘪𝘷𝘢</button>
+      <button onclick="applyFormat()">Aplicar formato</button>
       <button onclick="copyResult()">📋 Copiar</button>
     </div>
 
@@ -27,6 +42,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
