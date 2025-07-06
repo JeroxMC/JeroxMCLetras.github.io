@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+  background: #1e1e2f;
+  color: #fff;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.buttons button {
+  margin: 0.3rem;
+  padding: 0.6rem 1rem;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buttons button:hover {
+  background: #666;
+}
+
+.result {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  word-wrap: break-word;
+}
