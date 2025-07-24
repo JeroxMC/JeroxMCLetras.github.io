@@ -3,46 +3,188 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Generador de Texto</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Mike_Dev | Portafolio Completo De Mike_Dev</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #00ffcc;
+      margin-bottom: 0.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #101010;
+    }
+
+    nav button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background-color: #00ffcc;
+      color: #000;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .card {
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 15px rgba(0, 255, 200, 0.1);
+    }
+
+    .card h2 {
+      color: #00ffcc;
+    }
+
+    .tag {
+      background-color: #00ffcc;
+      color: #000;
+      padding: 0.2rem 0.6rem;
+      margin-right: 0.4rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      display: inline-block;
+    }
+
+    a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #101010;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎨 Hex + Letras + Emojis</h1>
 
-    <input type="text" id="userText" placeholder="Escribe tu texto aquí..." />
+<header>
+  <h1>Mike_Dev</h1>
+  <p>Portafolio de Configurador Minecraft & Desarrollador de Bots Discord</p>
+</header>
 
-    <div class="controls">
-      <label for="colorPicker">Color:</label>
-      <input type="color" id="colorPicker" value="#ff9900" />
+<nav>
+  <button class="tab-btn active" onclick="showTab('minecraft')">Minecraft</button>
+  <button class="tab-btn" onclick="showTab('discord')">Discord</button>
+</nav>
 
-      <label for="emojiSelect">Emoji:</label>
-      <select id="emojiSelect">
-        <option value="">-- Elegir --</option>
-        <option value="✨">✨ Brillo</option>
-        <option value="🔥">🔥 Fuego</option>
-        <option value="😂">😂 Risa</option>
-        <option value="🎉">🎉 Fiesta</option>
-        <option value="😎">😎 Cool</option>
-        <option value="💯">💯 100%</option>
-        <option value="🥳">🥳 Celebrar</option>
-      </select>
-    </div>
-
-    <div class="buttons">
-      <button onclick="toggleStyle('bold')">𝗡𝗲𝗴𝗿𝗶𝘁𝗮</button>
-      <button onclick="toggleStyle('italic')">𝘊𝘶𝘳𝘴𝘪𝘷𝘢</button>
-      <button onclick="applyFormat()">Aplicar formato</button>
-      <button onclick="copyResult()">📋 Copiar</button>
-    </div>
-
-    <div id="result" class="result"></div>
+<!-- Minecraft Tab -->
+<section id="minecraft" class="tab-content active">
+  <div class="card">
+    <h2>🧪 Sobre mí</h2>
+    <p>Me dedico a configurar servidores de Minecraft de todo tipo: Factions, SkyBlock, Survival, MiniJuegos y más. Puedo dejar tu servidor listo para abrir con una apariencia profesional y plugins bien optimizados.</p>
   </div>
 
-  <script src="script.js"></script>
+  <div class="card">
+    <h2>🌟 Servidor destacado</h2>
+    <p><strong>🛸 Galaxity Network 🚀</strong></p>
+    <p>Una network única que ofrece modalidades como Anárquico, Survival OP y Box PvP. Fui el responsable de toda la configuración técnica y optimización del servidor.</p>
+    <span class="tag">Lobby</span>
+    <span class="tag">Multimodalidad</span>
+    <span class="tag">Performance</span>
+    <span class="tag">AntiLag</span>
+  </div>
+
+  <div class="card">
+    <h2>🧰 Servicios que ofrezco</h2>
+    <ul>
+      <li>🔧 Configuración completa de servidores (Spigot, Paper, Purpur, etc)</li>
+      <li>🛒 Setup de tiendas y menús personalizados</li>
+      <li>📦 Optimización anti-lag y TPS estable</li>
+      <li>🌐 Integración con Discord y sitios web</li>
+      <li>💬 Soporte continuo post-entrega</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📩 Contacto</h2>
+    <p>💬 Discord: <strong>_mike.dev</strong></p>
+    <p>📧 Email: <a href="mailto:soyminemaikyt@gmail.com"><strong>soyminemaikyt@gmail.com</strong></a></p>
+    <p>🌐 GitHub: <a href="https://github.com/mike-dev-js" target="_blank">github.com/mike-dev-js</a></p>
+  </div>
+</section>
+
+<!-- Discord Tab -->
+<section id="discord" class="tab-content">
+  <div class="card">
+    <h2>🤖 ¿Qué hago?</h2>
+    <p>Desarrollo bots de Discord personalizados desde cero: comandos, sistemas de moderación, economía, niveles, interacción con bases de datos y mucho más. No trabajo con bots que requieran integración directa con apps externas.</p>
+  </div>
+
+  <div class="card">
+    <h2>🚀 Ejemplos de sistemas que hago</h2>
+    <ul>
+      <li>🎮 Comandos personalizados (prefijo y slash)</li>
+      <li>🛡️ Moderación completa (ban, mute, warn, logs...)</li>
+      <li>💰 Economía y tiendas virtuales</li>
+      <li>📈 Sistema de niveles con XP y rangos</li>
+      <li>📨 AutoRoles, bienvenida, tickets</li>
+      <li>📊 Bases de datos (SQLite / MongoDB)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📩 Contacto</h2>
+    <p>💬 Discord: <strong>_mike.dev</strong></p>
+    <p>📧 Email: <a href="mailto:soyminemaikyt@gmail.com"><strong>soyminemaikyt@gmail.com</strong></a></p>
+    <p>🌐 GitHub: <a href="https://github.com/mike-dev-js" target="_blank">github.com/mike-dev-js</a></p>
+  </div>
+</section>
+
+<footer>
+  © 2025 Mike_Dev | Portafolio Completo
+</footer>
+
+
+<script>
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
 </body>
 </html>
-
 
 
 
