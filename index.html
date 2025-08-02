@@ -1,187 +1,177 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mike_Dev | Portafolio Completo De Mike_Dev</title>
+  <title>Grizzly Studio - Servicios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
+    html {
+      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #a855f7, #f472b6, #8b5cf6);
+      background-size: 600% 600%;
+      animation: bgAnimation 20s ease infinite;
     }
 
-    header {
-      background-color: #1f1f1f;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #00ffcc;
-      margin-bottom: 0.5rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #101010;
-    }
-
-    nav button {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      color: #ffffff;
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    nav button:hover,
-    nav button.active {
-      background-color: #00ffcc;
-      color: #000;
-    }
-
-    .tab-content {
-      display: none;
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .tab-content.active {
-      display: block;
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .card {
-      background-color: #1c1c1c;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 15px rgba(0, 255, 200, 0.1);
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
     }
 
-    .card h2 {
-      color: #00ffcc;
+    .service-content {
+      display: none;
     }
 
-    .tag {
-      background-color: #00ffcc;
-      color: #000;
-      padding: 0.2rem 0.6rem;
-      margin-right: 0.4rem;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      display: inline-block;
+    .section {
+      display: none;
     }
 
-    a {
-      color: #00ffcc;
-      text-decoration: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background-color: #101010;
-      color: #777;
-      font-size: 0.9rem;
+    .section.active {
+      display: block;
     }
   </style>
 </head>
-<body>
+<body class="text-white font-sans">
 
-<header>
-  <h1>Mike_Dev</h1>
-  <p>Portafolio de Configurador Minecraft & Desarrollador de Bots Discord</p>
-</header>
+  <!-- Sonido del menú -->
+  <audio id="menuSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_99f8c1d55c.mp3?filename=menu-click-110236.mp3"></audio>
 
-<nav>
-  <button class="tab-btn active" onclick="showTab('minecraft')">Minecraft</button>
-  <button class="tab-btn" onclick="showTab('discord')">Discord</button>
-</nav>
-
-<!-- Minecraft Tab -->
-<section id="minecraft" class="tab-content active">
-  <div class="card">
-    <h2>🧪 Sobre mí</h2>
-    <p>Me dedico a configurar servidores de Minecraft de todo tipo: Factions, SkyBlock, Survival, MiniJuegos y más. Puedo dejar tu servidor listo para abrir con una apariencia profesional y plugins bien optimizados.</p>
+  <!-- Menú hamburguesa -->
+  <div class="fixed top-4 right-6 z-50">
+    <button id="menuBtn" class="bg-purple-300 text-white text-3xl font-semibold px-4 py-2 rounded-lg focus:outline-none">
+      &#9776;
+    </button>
+    <div id="menu" class="hidden absolute right-0 mt-2 bg-purple-100 rounded-xl p-4 shadow-xl space-y-2 text-right min-w-[180px]">
+      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="home">🏠 Inicio</button>
+      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="github">🐱 GitHub</button>
+      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="contacto">📬 Contacto</button>
+      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="discord">💬 Discord</button>
+      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="terminos">📄 Términos & Condiciones</button>
+    </div>
   </div>
 
-  <div class="card">
-    <h2>🌟 Servidor destacado</h2>
-    <p><strong>🛸 Galaxity Network 🚀</strong></p>
-    <p>Una network única que ofrece modalidades como Anárquico, Survival OP y Box PvP. Fui el responsable de toda la configuración técnica y optimización del servidor.</p>
-    <span class="tag">Lobby</span>
-    <span class="tag">Multimodalidad</span>
-    <span class="tag">Performance</span>
-    <span class="tag">AntiLag</span>
-  </div>
+  <!-- Sección principal -->
+  <section id="home" class="section active p-8 space-y-10">
+    <h1 class="text-4xl font-bold text-center">Bienvenido a Grizzly Studio</h1>
 
-  <div class="card">
-    <h2>🧰 Servicios que ofrezco</h2>
-    <ul>
-      <li>🔧 Configuración completa de servidores (Spigot, Paper, Purpur, etc)</li>
-      <li>🛒 Setup de tiendas y menús personalizados</li>
-      <li>📦 Optimización anti-lag y TPS estable</li>
-      <li>🌐 Integración con Discord y sitios web</li>
-      <li>💬 Soporte continuo post-entrega</li>
+    <!-- Servicios Generales -->
+    <div class="grid gap-6 md:grid-cols-2">
+      <!-- Servicio -->
+      <div class="card p-6 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-2">🤖 Bot Developing</h2>
+        <p class="mb-4">Creamos bots de Discord a medida, con funciones únicas y paneles personalizados.</p>
+        <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg" onclick="toggleService('bot')">Ver Servicios</button>
+        <div id="bot" class="service-content mt-4 space-y-2">
+          <p>- Moderación avanzada ($4.50)</p>
+          <p>- Sistema de tickets,logs y transcripciones ($3.30)</p>
+          <p>- AutoRoles,Roles Al Entrar,Capcha ($7.20)</p>
+          <p>- Bots con panel web ($13.78)</p>
+        </div>
+      </div>
+
+      <div class="card p-6 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-2">🌐 Desarrollo Web</h2>
+        <p class="mb-4">Diseñamos sitios web modernos, responsivos y con panel de administración.</p>
+        <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg" onclick="toggleService('web')">Ver Servicios</button>
+        <div id="web" class="service-content mt-4 space-y-2">
+          <p>- Landing page ($10)</p>
+          <p>- Web de panel de control ($15)</p>
+          <p>- Tiendas con pasarela ($20)</p>
+          <p>- Portafolios animados ($7)</p>
+        </div>
+      </div>
+
+      <div class="card p-6 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-2">🔌 Creación de Plugins</h2>
+        <p class="mb-4">Creamos plugins para Minecraft únicos, optimizados y totalmente personalizables.</p>
+        <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg" onclick="toggleService('plugins')">Ver Servicios</button>
+        <div id="plugins" class="service-content mt-4 space-y-2">
+          <p>- Sistema de Rangos ($8.70)</p>
+          <p>- AntiCheat básico ($4.50)</p>
+          <p>- Minijuegos personalizados ($7.24)</p>
+          <p>- Plugins para servidores PvP o Survival ($5.20)</p>
+        </div>
+      </div>
+
+      <div class="card p-6 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-2">🛠️ Configuración de Servidores</h2>
+        <p class="mb-4">Configuramos tu servidor de Minecraft o Discord desde cero con plugins y optimización.</p>
+        <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg" onclick="toggleService('config')">Ver Servicios</button>
+        <div id="config" class="service-content mt-4 space-y-2">
+          <p>- Configuración completa de Spigot/Paper ($13.48)</p>
+          <p>- Archivos optimizados (Spigot,Bungee) ($4.60)</p>
+          <p>- Configuración de plugins (TAB, LuckPerms, etc) ($4.70)</p>
+          <p>- Setup de Discord completo,ya con bots Configurados Como nekotina,Carl-Bot ($14.50)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub -->
+  <section id="github" class="section p-8">
+    <h2 class="text-3xl font-bold mb-4">🐱 GitHub</h2>
+    <p>Aquí puedes ver nuestros proyectos públicos, ejemplos y librerías en uso.</p>
+    <a href="https://github.com/maikkdev" class="underline text-white hover:text-purple-200">Visitar GitHub</a>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section p-8">
+    <h2 class="text-3xl font-bold mb-4">📬 Contacto</h2>
+    <p>¿Tienes una idea o proyecto? Contáctanos por correo o por Discord.</p>
+    <p>✉️ Email: soyminemaikyt@gmail.com</p>
+    <p>💬 Discord: _mike.dev</p>
+  </section>
+
+  <!-- Discord -->
+  <section id="discord" class="section p-8">
+    <h2 class="text-3xl font-bold mb-4">💬 Únete a nuestro Discord</h2>
+    <p>Comunidad de soporte, novedades, sugerencias y pedidos personalizados.</p>
+    <a href="https://discord.gg/TmHuZQ5qg5" target="_blank" class="inline-block mt-4 bg-indigo-600 hover:bg-indigo-700 px-5 py-3 rounded-md">Entrar al Discord</a>
+  </section>
+
+  <!-- Términos -->
+  <section id="terminos" class="section p-8">
+    <h2 class="text-3xl font-bold mb-4">📄 Términos & Condiciones</h2>
+    <p>Mike Studio se especializa en la creación de bots de Discord, desarrollo web, plugins de Minecraft y configuraciones profesionales. Al contratar nuestros servicios aceptas:</p>
+    <ul class="list-disc ml-6 mt-2 space-y-1">
+      <li>No se permiten reembolsos una vez entregado el producto final.</li>
+      <li>El código entregado es de uso exclusivo del cliente que lo contrató.</li>
+      <li>No nos responsabilizamos por mal uso del código o daños en servidores externos.</li>
+      <li>Ofrecemos soporte técnico durante 7 días después de la entrega.</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="card">
-    <h2>📩 Contacto</h2>
-    <p>💬 Discord: <strong>_mike.dev</strong></p>
-    <p>📧 Email: <a href="mailto:soyminemaikyt@gmail.com"><strong>soyminemaikyt@gmail.com</strong></a></p>
-    <p>🌐 GitHub: <a href="https://github.com/mike-dev-js" target="_blank">github.com/mike-dev-js</a></p>
-  </div>
-</section>
+  <!-- Script -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    const sound = document.getElementById('menuSound');
 
-<!-- Discord Tab -->
-<section id="discord" class="tab-content">
-  <div class="card">
-    <h2>🤖 ¿Qué hago?</h2>
-    <p>Desarrollo bots de Discord personalizados desde cero: comandos, sistemas de moderación, economía, niveles, interacción con bases de datos y mucho más. No trabajo con bots que requieran integración directa con apps externas.</p>
-  </div>
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      sound.play();
+    });
 
-  <div class="card">
-    <h2>🚀 Ejemplos de sistemas que hago</h2>
-    <ul>
-      <li>🎮 Comandos personalizados (prefijo y slash)</li>
-      <li>🛡️ Moderación completa (ban, mute, warn, logs...)</li>
-      <li>💰 Economía y tiendas virtuales</li>
-      <li>📈 Sistema de niveles con XP y rangos</li>
-      <li>📨 AutoRoles, bienvenida, tickets</li>
-      <li>📊 Bases de datos (SQLite / MongoDB)</li>
-    </ul>
-  </div>
+    document.querySelectorAll('.menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(link.dataset.target).classList.add('active');
+        menu.classList.add('hidden');
+      });
+    });
 
-  <div class="card">
-    <h2>📩 Contacto</h2>
-    <p>💬 Discord: <strong>_mike.dev</strong></p>
-    <p>📧 Email: <a href="mailto:soyminemaikyt@gmail.com"><strong>soyminemaikyt@gmail.com</strong></a></p>
-    <p>🌐 GitHub: <a href="https://github.com/mike-dev-js" target="_blank">github.com/mike-dev-js</a></p>
-  </div>
-</section>
-
-<footer>
-  © 2025 Mike_Dev | Portafolio Completo
-</footer>
-
-
-<script>
-  function showTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
-    event.target.classList.add('active');
-  }
-</script>
+    function toggleService(id) {
+      const section = document.getElementById(id);
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 
 </body>
 </html>
