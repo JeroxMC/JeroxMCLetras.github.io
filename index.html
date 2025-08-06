@@ -1,178 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grizzly Studio - Servicios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vortex</Title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html {
-      scroll-behavior: smooth;
-      background: linear-gradient(135deg, #a855f7, #f472b6, #8b5cf6);
-      background-size: 600% 600%;
-      animation: bgAnimation 20s ease infinite;
-    }
-
-    @keyframes bgAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .card {
-      background-color: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-    }
-
-    .service-content {
-      display: none;
-    }
-
-    .section {
-      display: none;
-    }
-
-    .section.active {
-      display: block;
+    .card:hover {
+      transform: translateY(-4px) scale(1.02);
     }
   </style>
 </head>
-<body class="text-white font-sans">
+<body class="bg-gray-900 text-white font-sans">
+  <div class="max-w-5xl mx-auto p-8">
+    <h1 class="text-4xl font-bold text-center mb-10 text-teal-400">Vortexcraft Store</h1>
 
-  <!-- Sonido del menú -->
-  <audio id="menuSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_99f8c1d55c.mp3?filename=menu-click-110236.mp3"></audio>
+    <div class="grid md:grid-cols-2 gap-6">
 
-  <!-- Menú hamburguesa -->
-  <div class="fixed top-4 right-6 z-50">
-    <button id="menuBtn" class="bg-purple-300 text-white text-3xl font-semibold px-4 py-2 rounded-lg focus:outline-none">
-      &#9776;
-    </button>
-    <div id="menu" class="hidden absolute right-0 mt-2 bg-purple-100 rounded-xl p-4 shadow-xl space-y-2 text-right min-w-[180px]">
-      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="home">🏠 Inicio</button>
-      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="github">🐱 GitHub</button>
-      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="contacto">📬 Contacto</button>
-      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="discord">💬 Discord</button>
-      <button class="menu-link w-full text-white bg-pink-800 px-4 py-2 rounded-md hover:bg-pink-700 transition" data-target="terminos">📄 Términos & Condiciones</button>
+      <!-- Rango #1-->
+      <div class="card bg-gray-800 rounded-2xl p-6 shadow-md hover:shadow-teal-400/60 transition-all duration-300 transform">
+        <h2 class="text-2xl font-bold mb-2 text-teal-300">🔗 Rango #1</h2>
+        <p class="text-green-300 mb-4">Rango Infectado perma 0.50$.</p>
+        <a href="https://discord.gg/dEe6Y8kBkE" target="_blank" class="inline-block bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-full transition">Comprar</a>
+      </div>
+
+      <!-- Rango #2-->
+      <div class="card bg-gray-800 rounded-2xl p-6 shadow-md hover:shadow-indigo-400/60 transition-all duration-300 transform">
+        <h2 class="text-2xl font-bold mb-2 text-indigo-300">🔗 Rango #2</h2>
+        <p class="text-red-700 mb-4">Rango Zombi permanente 1$.</p>
+        <a href="https://discord.gg/dEe6Y8kBkE" target="_blank" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-full transition">Comprar</a>
+      </div>
+
+      <!-- Rango #3-->
+      <div class="card bg-gray-800 rounded-2xl p-6 shadow-md hover:shadow-yellow-400/60 transition-all duration-300 transform">
+        <h2 class="text-2xl font-bold mb-2 text-yellow-300">🔗 Rango #3</h2>
+        <p class="text-White-800 mb-4">Rango Curado permanete 1.50$.</p>
+        <a href="https://discord.gg/dEe6Y8kBkE" target="_blank" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full transition">Comprar</a>
+      </div>
+
+      <!-- Rango #4 -->
+      <div class="card bg-gray-800 rounded-2xl p-6 shadow-md hover:shadow-green-400/60 transition-all duration-300 transform">
+        <h2 class="text-2xl font-bold mb-2 text-green-300">🔗 Rango #4</h2>
+        <p class="text-blue-900 mb-4">Rango Vortex permanente 2$.</p>
+        <a href="https://discord.gg/dEe6Y8kBkE" target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full transition">Comprar</a>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <p class="text-green-300">Bienvenido ala tienda oficial de VortexCraft para comprar un rango dale click en COMPRAR y seras llevado al discord oficial del servidor DISFRUTA!.</p>
     </div>
   </div>
-
-  <!-- Sección principal -->
-  <section id="home" class="section active p-8 space-y-10">
-    <h1 class="text-4xl font-bold text-center">Bienvenido a Grizzly Studio</h1>
-
-    <!-- Servicios Generales -->
-    <div class="grid gap-6 md:grid-cols-2">
-      <!-- Servicio -->
-      <div class="card p-6 rounded-xl shadow-lg">
-        <h2 class="text-2xl font-bold mb-2">🤖 Bot Developing</h2>
-        <p class="mb-4">Creamos bots de Discord a medida, con funciones únicas y paneles personalizados.</p>
-        <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg" onclick="toggleService('bot')">Ver Servicios</button>
-        <div id="bot" class="service-content mt-4 space-y-2">
-          <p>- Moderación avanzada ($4.50)</p>
-          <p>- Sistema de tickets,logs y transcripciones ($3.30)</p>
-          <p>- AutoRoles,Roles Al Entrar,Capcha ($7.20)</p>
-          <p>- Bots con panel web ($13.78)</p>
-        </div>
-      </div>
-
-      <div class="card p-6 rounded-xl shadow-lg">
-        <h2 class="text-2xl font-bold mb-2">🌐 Desarrollo Web</h2>
-        <p class="mb-4">Diseñamos sitios web modernos, responsivos y con panel de administración.</p>
-        <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg" onclick="toggleService('web')">Ver Servicios</button>
-        <div id="web" class="service-content mt-4 space-y-2">
-          <p>- Landing page ($10)</p>
-          <p>- Web de panel de control ($15)</p>
-          <p>- Tiendas con pasarela ($20)</p>
-          <p>- Portafolios animados ($7)</p>
-        </div>
-      </div>
-
-      <div class="card p-6 rounded-xl shadow-lg">
-        <h2 class="text-2xl font-bold mb-2">🔌 Creación de Plugins</h2>
-        <p class="mb-4">Creamos plugins para Minecraft únicos, optimizados y totalmente personalizables.</p>
-        <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg" onclick="toggleService('plugins')">Ver Servicios</button>
-        <div id="plugins" class="service-content mt-4 space-y-2">
-          <p>- Sistema de Rangos ($8.70)</p>
-          <p>- AntiCheat básico ($4.50)</p>
-          <p>- Minijuegos personalizados ($7.24)</p>
-          <p>- Plugins para servidores PvP o Survival ($5.20)</p>
-        </div>
-      </div>
-
-      <div class="card p-6 rounded-xl shadow-lg">
-        <h2 class="text-2xl font-bold mb-2">🛠️ Configuración de Servidores</h2>
-        <p class="mb-4">Configuramos tu servidor de Minecraft o Discord desde cero con plugins y optimización.</p>
-        <button class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg" onclick="toggleService('config')">Ver Servicios</button>
-        <div id="config" class="service-content mt-4 space-y-2">
-          <p>- Configuración completa de Spigot/Paper ($13.48)</p>
-          <p>- Archivos optimizados (Spigot,Bungee) ($4.60)</p>
-          <p>- Configuración de plugins (TAB, LuckPerms, etc) ($4.70)</p>
-          <p>- Setup de Discord completo,ya con bots Configurados Como nekotina,Carl-Bot ($14.50)</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GitHub -->
-  <section id="github" class="section p-8">
-    <h2 class="text-3xl font-bold mb-4">🐱 GitHub</h2>
-    <p>Aquí puedes ver nuestros proyectos públicos, ejemplos y librerías en uso.</p>
-    <a href="https://github.com/maikkdev" class="underline text-white hover:text-purple-200">Visitar GitHub</a>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" class="section p-8">
-    <h2 class="text-3xl font-bold mb-4">📬 Contacto</h2>
-    <p>¿Tienes una idea o proyecto? Contáctanos por correo o por Discord.</p>
-    <p>✉️ Email: soyminemaikyt@gmail.com</p>
-    <p>💬 Discord: _mike.dev</p>
-  </section>
-
-  <!-- Discord -->
-  <section id="discord" class="section p-8">
-    <h2 class="text-3xl font-bold mb-4">💬 Únete a nuestro Discord</h2>
-    <p>Comunidad de soporte, novedades, sugerencias y pedidos personalizados.</p>
-    <a href="https://discord.gg/TmHuZQ5qg5" target="_blank" class="inline-block mt-4 bg-indigo-600 hover:bg-indigo-700 px-5 py-3 rounded-md">Entrar al Discord</a>
-  </section>
-
-  <!-- Términos -->
-  <section id="terminos" class="section p-8">
-    <h2 class="text-3xl font-bold mb-4">📄 Términos & Condiciones</h2>
-    <p>Mike Studio se especializa en la creación de bots de Discord, desarrollo web, plugins de Minecraft y configuraciones profesionales. Al contratar nuestros servicios aceptas:</p>
-    <ul class="list-disc ml-6 mt-2 space-y-1">
-      <li>No se permiten reembolsos una vez entregado el producto final.</li>
-      <li>El código entregado es de uso exclusivo del cliente que lo contrató.</li>
-      <li>No nos responsabilizamos por mal uso del código o daños en servidores externos.</li>
-      <li>Ofrecemos soporte técnico durante 7 días después de la entrega.</li>
-    </ul>
-  </section>
-
-  <!-- Script -->
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const menu = document.getElementById('menu');
-    const sound = document.getElementById('menuSound');
-
-    menuBtn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      sound.play();
-    });
-
-    document.querySelectorAll('.menu-link').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-        document.getElementById(link.dataset.target).classList.add('active');
-        menu.classList.add('hidden');
-      });
-    });
-
-    function toggleService(id) {
-      const section = document.getElementById(id);
-      section.style.display = section.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
-
 </body>
 </html>
 
