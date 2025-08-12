@@ -9,14 +9,15 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background: linear-gradient(to bottom right, #1e1e2f, #3b1d57);
+            color: white;
         }
         header {
-            background-color: #222;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         section {
             max-width: 900px;
@@ -24,14 +25,28 @@
             padding: 20px;
         }
         h2 {
-            color: #444;
+            color: #9b8cff;
+            border-bottom: 2px solid #2575fc;
+            padding-bottom: 5px;
         }
         .proyecto {
-            background: white;
-            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 15px 0;
             padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .proyecto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(155, 140, 255, 0.5);
+        }
+        a {
+            color: #7dd3fc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -51,14 +66,17 @@
         <div class="proyecto">
             <h3>Proyecto 1</h3>
             <p>Descripción breve de lo que hiciste en este proyecto.</p>
+            <a href="#">Ver proyecto</a>
         </div>
         <div class="proyecto">
             <h3>Proyecto 2</h3>
             <p>Descripción breve del segundo proyecto.</p>
+            <a href="#">Ver proyecto</a>
         </div>
     </section>
 </body>
 </html>
+
 
 
 
